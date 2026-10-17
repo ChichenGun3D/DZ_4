@@ -10,21 +10,35 @@ namespace DZ_4
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите число для вычисления факториала: ");
-            int number = int.Parse(Console.ReadLine());
+            Console.Write("Введите первое число: ");
+            int a = int.Parse(Console.ReadLine());
 
-            int result = Factorial(number);
-            Console.WriteLine($"Факториал числа {number} равен: {result}");
+            Console.Write("Введите второе число: ");
+            int b = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите третье число: ");
+            int c = int.Parse(Console.ReadLine());
+            int NOD2 = NOD(a, b);
+            int NOD3 = NOD(a, b, c);
+            Console.WriteLine($"НОД двух чисел ({a}, {b}) = {NOD2}");
+            Console.WriteLine($"НОД трех чисел ({a}, {b}, {c}) = {NOD3}");
         }
 
-        static int Factorial(int n)
+        static int NOD(int a, int b)
         {
-            if (n == 0 || n == 1)
+            while (b != 0)
             {
-                return 1;
+             int temp = b;
+             b = a % b;
+             a = temp;
             }
+            return a;
+        }
 
-            return n * Factorial(n - 1);
+        static int NOD(int a, int b, int c)
+        {
+            int nodAB = NOD(a, b);
+            return NOD(nodAB, c);
         }
     }
 }
