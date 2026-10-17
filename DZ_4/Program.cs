@@ -10,14 +10,39 @@ namespace DZ_4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите первое число");
-            int Numb1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int Numb2 = Convert.ToInt32(Console.ReadLine());
-            int Numb22 = Numb1;
-            int numb11 = Numb2;
-            Console.WriteLine("Параметры до смены местами: {0} и {1}", numb11, Numb22);
-            Console.WriteLine("Параметры после смены местами: {1} и {0}", numb11, Numb22);
+            Console.Write("Введите число для вычисления факториала: ");
+            int number = int.Parse(Console.ReadLine());
+
+            int result;
+            bool isSuccess = TryFactorial(number, out result);
+
+            if (isSuccess)
+            {
+                Console.WriteLine($"Факториал числа {number} равен: {result}");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка! Число слишком большое, произошло переполнение.");
+            }
+        }        
+        static bool TryFactorial(int n, out int result)
+        {
+            result = 1;
+            if (n > 12)
+            {
+                result = 0;
+                return false;
+            }
+
+            for (int i = 1; i <= n; i++)
+            {
+                checked
+                {
+                    result *= i;
+                }
+            }
+
+            return true; 
         }
     }
 }
