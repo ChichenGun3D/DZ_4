@@ -10,22 +10,14 @@ namespace DZ_4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine( "Введите два целых числа");
-            int a = Convert.ToInt32(Console.ReadLine());
-            int b = Convert.ToInt32(Console.ReadLine());
-            if (a>b)
-            {
-                Console.WriteLine("Наибольшее число: " + a);
-            } 
-            else if (b > a)
-            {
-                Console.WriteLine("Наибольшее число: " + b);
-            }
-            else
-            {
-                Console.WriteLine("Числа равны");
-            }
-
+            Console.WriteLine("Введите первое число");
+            int Numb1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите второе число");
+            int Numb2 = Convert.ToInt32(Console.ReadLine());
+            int Numb22 = Numb1;
+            int numb11 = Numb2;
+            Console.WriteLine("Параметры до смены местами: {0} и {1}", numb11, Numb22);
+            Console.WriteLine("Параметры после смены местами: {1} и {0}", numb11, Numb22);
         }
     }
 }
