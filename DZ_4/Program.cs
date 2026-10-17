@@ -13,36 +13,18 @@ namespace DZ_4
             Console.Write("Введите число для вычисления факториала: ");
             int number = int.Parse(Console.ReadLine());
 
-            int result;
-            bool isSuccess = TryFactorial(number, out result);
+            int result = Factorial(number);
+            Console.WriteLine($"Факториал числа {number} равен: {result}");
+        }
 
-            if (isSuccess)
-            {
-                Console.WriteLine($"Факториал числа {number} равен: {result}");
-            }
-            else
-            {
-                Console.WriteLine("Ошибка! Число слишком большое, произошло переполнение.");
-            }
-        }        
-        static bool TryFactorial(int n, out int result)
+        static int Factorial(int n)
         {
-            result = 1;
-            if (n > 12)
+            if (n == 0 || n == 1)
             {
-                result = 0;
-                return false;
+                return 1;
             }
 
-            for (int i = 1; i <= n; i++)
-            {
-                checked
-                {
-                    result *= i;
-                }
-            }
-
-            return true; 
+            return n * Factorial(n - 1);
         }
     }
 }
