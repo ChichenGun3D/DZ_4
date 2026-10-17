@@ -16,7 +16,7 @@ namespace DZ_4
             if (a>b)
             {
                 Console.WriteLine("Наибольшее число: " + a);
-            }
+            } 
             else if (b > a)
             {
                 Console.WriteLine("Наибольшее число: " + b);
